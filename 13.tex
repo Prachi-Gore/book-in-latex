@@ -1,0 +1,94 @@
+% \chapter{}
+
+
+$$P[x<X<x+n]=S(x)-S(x+n)$$
+Hence we get,
+$$\dx[n]{x}=E[\Dx[n]{x}]=l_0[S(x)-S(x+n)]$$
+$$n{d_x}=l_x-l_{x+n}$$
+when n=1,we omit the prefixes on $\Dx[n]{x}$ and $\dx[n]{x}$ \\
+$\Dx[1]{x}$ is equivalent to $\Dx[]{x}$  and $\dx[1]{x}$ is equivalent to $\dx[]{x}$
+
+
+\section{Relation between $u_x$ and $l_x$}
+we have,$$l_x=l_0S(x)$$
+$$log(l_x)=log(l_0)+log(S(x))$$
+note that as S(x) is differentiable function of x and hence $l_x$ is also differentiable function of x\\
+\begin{align*}
+\frac{-d}{dx} log(l_x)=\frac{-d}{dx} log(S(x)\\
+\frac{-1}{l_x}\frac{d}{dx} l_x=\frac{-1}{S(x)}\frac{d}{dx} S(x)=\frac{-S'(x)}{S(x)}=u_x
+\end{align*}
+\begin{align*}
+\frac{-d}{dx} l_x=u_xl_x\\
+-dl_x=l_xu_xd_x
+\end{align*}
+the factor $l_xu_x$ can be interpreted as the expected density of deaths in the age interval (x,x+$d_x$)\\
+\begin{align*}
+l_x=l_0S(x)&=l_0e^{-\int_{0}^{x} u_y dy}\\
+l_{x+n}&=l_x \px[n]{x}\\
+l_{x+n}&=l_xe^{-\int_{x}^{x+n} u_y dy}
+\end{align*}
+
+Also as,
+\begin{align*}
+\frac{-d}{dy} l_y&=u_yl_y\\
+\int_{x}^{x+n}\left(\frac{-d}{dy}l_y\right) dy&=\int_{x}^{x+n}l_y u_y dy\\
+l_x-l_{x+n}&=\int_{x}^{x+n}l_y u_y dy\\
+\dx[n]{x}=l_x-l_{x+n}&=\int_{x}^{x+n}l_y u_y dy
+\end{align*}
+for convenience of reference,we call this concept of $l_0$ newborns,each with survival function S(x) a random survivorship group\\
+In the following we have an example of life table.
+
+
+\begin{table}[!h]
+\caption{Life Table for the total population:US(1979-81)}
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Age Interval                                  & $\qx[t]{x}$                                           & $l_x$                                            & $\dx[t]{x}$                                           & $\Lx[t]{x}$                                           & $T_x$                                            & E(T(x))                                       \\ \hline
+days                                          &                                               &                                               &                                               &                                               &                                               &                                               \\ \hline
+0-1                                           & 0.00463                                       & 100,000                                       & 463                                           & 273                                           & 7387758                                       & 73.88                                         \\ \hline
+1-7                                           & 0.00246                                       & 99537                                         & 245                                           & 1635                                          & 7387485                                       & 74.22                                         \\ \hline
+7-28                                          & 0.00139                                       & 99292                                         & 138                                           & 5708                                          & 7385850                                       & 74.38                                         \\ \hline
+28-365                                        & 0.00418                                       & 99154                                         & 414                                           & 91357                                         & 7380142                                       & 74.43                                         \\ \hline
+years                                         &                                               &                                               &                                               &                                               &                                               &                                               \\ \hline
+0-1                                           & 0.01260                                       & 100000                                        & 1260                                          & 98973                                         & 7387758                                       & 73.88                                         \\ \hline
+1-2                                           & 0.00093                                       & 98740                                         & 92                                            & 98694                                         & 7288785                                       & 73.82                                         \\ \hline
+2-3                                           & 0.00065                                       & 98648                                         & 64                                            & 98617                                         & 7190091                                       & 72.89                                         \\ \hline
+3-4                                           & 0.00050                                       & 98584                                         & 49                                            & 98560                                         & 7091474                                       & 71.93                                         \\ \hline
+\begin{tabular}[c]{@{}l@{}}:\\ :\end{tabular} & \begin{tabular}[c]{@{}l@{}}:\\ :\end{tabular} & \begin{tabular}[c]{@{}l@{}}:\\ :\end{tabular} & \begin{tabular}[c]{@{}l@{}}:\\ :\end{tabular} & \begin{tabular}[c]{@{}l@{}}:\\ :\end{tabular} & \begin{tabular}[c]{@{}l@{}}:\\ :\end{tabular} & \begin{tabular}[c]{@{}l@{}}:\\ :\end{tabular} \\ \hline
+108-109                                       & 0.35453                                       & 51                                            & 18                                            & 42                                            & 115                                           & 2.24                                          \\ \hline
+109-110                                       & 0.35988                                       & 33                                            & 12                                            & 27                                            & 73                                            & 2.2                                           \\ \hline
+\end{tabular}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[!h]
+\caption{Following table provides values of $q_x$ from some National Life tables}
+\centering
+\begin{tabular}{|c|cc|cc|cc|}
+\hline
+\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}x\\ (years)\end{tabular}} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}Australian\\ 2000-02\end{tabular}} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}English\\ 1990-92\end{tabular}} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}US\\ 2002-04\end{tabular}} \\ \cline{2-7} 
+                                                                     & \multicolumn{1}{c|}{Male}                          & Female                       & \multicolumn{1}{c|}{Male}                        & Female                      & \multicolumn{1}{c|}{Male}                      & Female                   \\ \hline
+0                                                                    & \multicolumn{1}{c|}{0.00567}                       & 0.00466                      & \multicolumn{1}{c|}{0.00814}                     & 0.00632                     & \multicolumn{1}{c|}{0.00764}                   & 0.00627                  \\ \hline
+1                                                                    & \multicolumn{1}{c|}{0.00044}                       & 0.00043                      & \multicolumn{1}{c|}{0.00062}                     & 0.00055                     & \multicolumn{1}{c|}{0.00053}                   & 0.00042                  \\ \hline
+2                                                                    & \multicolumn{1}{c|}{0.00031}                       & 0.00019                      & \multicolumn{1}{c|}{0.00038}                     & 0.00030                     & \multicolumn{1}{c|}{0.00037}                   & 0.00028                  \\ \hline
+10                                                                   & \multicolumn{1}{c|}{0.00013}                       & 0.00008                      & \multicolumn{1}{c|}{0.00018}                     & 0.00013                     & \multicolumn{1}{c|}{0.00018}                   & 0.00013                  \\ \hline
+20                                                                   & \multicolumn{1}{c|}{0.00096}                       & 0.00036                      & \multicolumn{1}{c|}{0.00084}                     & 0.00031                     & \multicolumn{1}{c|}{0.00139}                   & 0.00045                  \\ \hline
+40                                                                   & \multicolumn{1}{c|}{0.00159}                       & 0.00088                      & \multicolumn{1}{c|}{0.00172}                     & 0.00107                     & \multicolumn{1}{c|}{0.00266}                   & 0.00149                  \\ \hline
+90                                                                   & \multicolumn{1}{c|}{0.15934}                       & 0.12579                      & \multicolumn{1}{c|}{0.20465}                     & 0.15550                     & \multicolumn{1}{c|}{0.16805}                   & 0.13328                  \\ \hline
+100                                                                  & \multicolumn{1}{c|}{0.24479}                       & 0.23863                      & \multicolumn{1}{c|}{0.38705}                     & 0.32489                     & \multicolumn{1}{c|}{-}                         & -                        \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+    
+
+
+

@@ -1,0 +1,186 @@
+\documentclass[12pt,onesided,a4paper]{book}
+\usepackage[top=1.5cm, bottom=1.5cm, left=2cm, right=1cm]{geometry}
+\usepackage{amsmath,amssymb,array,amsfonts,dsfont,multirow}
+\usepackage{adjustbox}
+\usepackage{color,paralist,graphicx,wrapfig,tikz}
+\usepackage[mathscr]{euscript}
+\usepackage{titlesec}
+\usepackage{fancyhdr}%,fancyvbr}
+\usepackage[T1]{fontenc}
+\setcounter{tocdepth}{1}
+\usepackage{hyperref}
+\hypersetup{
+%    bookmarks=true,         % show bookmarks bar?
+%    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+%    pdftoolbar=true,        % show Acrobat’s toolbar?
+%    pdfmenubar=true,        % show Acrobat’s menu?
+%    pdffitwindow=false,     % window fit to page when opened
+%    pdfstartview={FitH},    % fits the width of the page to the window
+%    pdftitle={My title},    % title
+%    pdfauthor={Author},     % author
+%    pdfsubject={Subject},   % subject of the document
+%    pdfcreator={Creator},   % creator of the document
+%    pdfproducer={Producer}, % producer of the document
+%    pdfkeywords={keyword1, key2, key3}, % list of keywords
+%    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+%    citecolor=green,        % color of links to bibliography
+%    filecolor=magenta,      % color of file links
+%    urlcolor=cyan           % color of external links
+}
+
+\usepackage{float}
+\usepackage{tcolorbox,amsmath}
+\usepackage{lipsum}
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings,shadows}
+%\usepackage[dvipsnames]{xcolor}
+
+\newenvironment{myexampleblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightGreen,colframe=DarkGreen,%
+    colbacklower=LimeGreen!75!LightGreen,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{myalertblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightCoral,colframe=DarkRed,%
+    colbacklower=Tomato!75!LightCoral,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{myblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightBlue,colframe=DarkBlue,%
+    colbacklower=DarkBlue!75!LightBlue,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\renewcommand{\rmdefault}{ptm}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\rs}{\includegraphics[height=9pt,width=5.5pt]{rupee.pdf}\text{ }}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{fourier}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+ \ifdim\lastskip<1.5em \hskip-\lastskip
+ \hskip1.5em plus0em minus0.5em \fi \nobreak
+ \vrule height0.75em width0.5em depth0.25em\fi}
+\usepackage{fancyhdr}
+\author{Prof. R. L. Shinde}
+\title{Actuarial Statistics}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy} \setcounter{page}{1}
+%\renewcommand\chaptermark[1]{\markboth{\thechapter\ #1}{}}
+%\fancyhead[ro,le]{\footnotesize\textit{May 17,2019}}
+\fancyhead[ro,re]{\footnotesize \textit{\nouppercase{\leftmark}}}
+\fancyfoot[lo,le]{\footnotesize\thepage}
+\fancyhead[lo,le]{\footnotesize\textit{M.Sc.(Statistics) Lecture Notes (Prof. R. L. Shinde)}}
+\fancyfoot[ro,re]{\footnotesize\textit{Department of Statistics, Kavayitri Bahinabai Chaudhari North Maharashtra University, Jalgaon}}
+\cfoot{}
+\raggedbottom
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\twocol}[5]{\item #1 \par\nopagebreak[4]\medskip \begin{tabular}{lp{7cm}lp{7cm}}
+ $a$)& #2 & $b$) &#3 \\
+ $c$)& #4 & $d$) &#5 \\
+\end{tabular}}
+\usepackage{tcolorbox}
+%\tcbuselibrary{breakable}
+%\newcolorbox{mybox}{colback=red,colframe=black}
+\usepackage{fourier}
+\usepackage[Lenny]{fncychap}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{actuarialsymbol}
+\usepackage{multirow}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcounter{examplecounter}
+\newenvironment{example}{
+    \refstepcounter{examplecounter}%
+  \noindent\textbf{Example \arabic{examplecounter}:}%
+  \quad
+}{%
+}
+
+\newenvironment{solution}{
+  \noindent\textbf{Solution:\newline}%
+  \quad
+}{%
+\hfill\ensuremath{\blacksquare}
+}
+
+\newtheoremstyle{mystyle}%                % Name
+  {}%                                     % Space above
+  {}%                                     % Space below
+  {\itshape}%                             % Body font
+  {}%                                     % Indent amount
+  {\bfseries}%                    % Theorem head font
+  {: }%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{mystyle}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+\large
+\maketitle
+% \tableofcontents
+
+% \input{2101}
+%\input{2102}
+%\input{2104}
+%\input{2105}
+%\input{2106}
+%\input{2108}
+%\input{2109}
+%\input{2110}
+%\input{2111}
+%\input{2112}
+\input{13}
+\input{2113}
+%\input{2114}
+%\input{2115}
+%\input{2116}
+%\input{2117}
+%\input{2118}
+%\input{2119}
+%\input{2120}
+%\input{2121}
+%\input{2122}
+%\input{2123}
+%\input{2124}
+%\input{2125}
+%\input{2126}
+%\input{2127}
+%\input{2128}
+% \input{2129}
+%\input{2130}
+%\input{2131}
+%\input{2132}
+%\input{2133}
+%\input{2134}
+%\input{2136}
+%\input{2137}
+%\input{2138}
+%\input{2139}
+%\input{2140}
+%\input{2141}
+%\input{2143}
+%\input{2144}
+%\input{2145}
+%\input{2146}
+%\input{2147}
+%\input{2149}
+
+\end{document}

@@ -1,0 +1,77 @@
+% \chapter{}
+
+The Actuarial present value for this insurance is,
+$$(DA)|_{x:\angln}=\sum_{k=0}^{n-1}(n-k)v^{k+1}\px[k]{x}q_{x+k}$$
+consider,
+$$(DA)|_{x:\angln}=\sum_{k=0}^{n-1}(n-k)v^{k+1}\px[k]{x}q_{x+k}$$\\
+$$=\sum_{k=0}^{n-1}(n-k)_{k|}\Ax{^|{x:\angl1}}$$\\
+as by defination of actuarial present value of a unit benefit in an m-year deferred n year term insurance
+
+$$_{m|}{\Ax{^|{x:\angln}}}=\sum_{k=m}^{m+n-1}v^{k+1}\px[k]{x}q_{x+k} $$
+with m=k and n=1 , we get $_{k|}\Ax{^|{x:\angl1}}=v^{k+1}\px[k]{x}q_{x+k}$
+so we have,
+$$(DA)|_{x:\angln}=\sum_{k=0}^{n-1}(n-k)_{k|}\Ax{^|{x:\angl1}}=\sum_{k=0}^{n-1}(n-1)_{k|}\Ax{x}$$
+Also in above expression if we substitute,
+$$n-k=\sum_{j=0}^{n-k-1}(1)$$
+we get,
+$$(DA)|_{x:\angln}=\sum_{k=0}^{n-1}\sum_{j=0}^{n-k-1}(1)v^{k+1}\px[k]{x}q_{x+k}$$
+By interchanging the order of summation we obtain ,
+$$\sum_{k=0}^{n-1}\sum_{j=0}^{n-k-1}(1)v^{k+1}\px[k]{x}q_{x+k}=\sum_{j=0}^{n-1}\Ax{^|{x:\angl{n-j}}}=\Ax{^|{x:\angl{n-j}}}$$
+This is Actuarial present value of  $(n-j)$ year term insurance  when benefit of 1  unit is payable at the end of death year.\\
+Hence we obtain,one more expression for $(DA)|_{x:\angln}$ as,
+$$(DA)|_{x:\angln}=\sum_{j=0}^{n-1}\Ax{^|{x:\angl{n-j}}}$$
+In the following we give the summary of different insurances under which benefit amount is payable at the end of year of death.we also provide the summary of the recursion relations for their actuarial present values(NSPs)
+
+% 3rd page
+% https://www.tablesgenerator.com/latex_tables#
+
+\begin{table}[H]
+\caption{Summary of insurances payable at the end of year of death}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+(1)                                                                             & (2)                                                                                            & (3)                                                                                                                         & (4)                                                                                                                                       & (5)                                                                                          \\ \hline
+\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Insurance \\ Name\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}benefit function\\ $b_{k+1}$\end{tabular}}    & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Discount function\\ $v_{k+1}$\end{tabular}}                                 & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}present value function\\ $z_{k+1}$\end{tabular}}                                          & {\begin{tabular}[c]{@{}c@{}}APV\end{tabular}} \\ \hline
+whole life                                                                      & 1                                                                                              & $v^{k+1}$                                                                                                  & $v^{k+1}$                                                                                                                & $A_x$                           \hspace{0.5cm} (*)                                                          \\ \hline
+n year term                                                                     & \begin{tabular}[c]{@{}l@{}}1\hspace{0.7cm} k=0,1,...,n-1\\ 0\hspace{0.8cm}k=n,n+1,...\end{tabular}                        & $v^{k+1}$                                                                                                  & \begin{tabular}[c]{@{}l@{}}$v^{k+1}$\hspace{1cm} k=0,1,...,n-1\\ 0\hspace{1.6cm} k=n,n+1,...\end{tabular}                              & $\Ax{^|{x:\angln}}$\hspace{0.2cm}  (*)                \\ \hline
+n year endowment                                                                & 1                                                                                              & \begin{tabular}[c]{@{}l@{}}$v^{k+1}$\hspace{0.25cm} k=0,1,...,n-1\\ $v^{n}$ \hspace{0.6cm}k=n,n+1,...\end{tabular} & \begin{tabular}[c]{@{}l@{}}$v^{k+1}$ \hspace{1cm}k=0,1,...,n-1\\ $v^{n}$ \hspace{1.3cm}    k=n,n+1,...\end{tabular}               & $\Ax{x:\angln}$\hspace{0.3cm} (*)                                 \\ \hline
+\begin{tabular}[c]{@{}l@{}}m year deferred \\ n year term\end{tabular}          & \begin{tabular}[c]{@{}l@{}}1\hspace{0.8cm}k=m...m+n-1\\ 0\hspace{0.8cm}k=0,...m-1\\\hspace{1cm}k=m+n,m+n+1,...\end{tabular} & $v^{k+1}$                                                                                                  & \begin{tabular}[c]{@{}l@{}}$v^{k+1}$\hspace{1cm} k=m...m+n-1\\ 0 \hspace{1.65cm}k=0,...m-1\\                \hspace{1.95cm}k=m+n,...\end{tabular} & $\Ax[m|n]{x}$ \hspace{0.15cm}(*)              \\ \hline
+\begin{tabular}[c]{@{}l@{}}n year term\\ increasing annuity\end{tabular}        & \begin{tabular}[c]{@{}l@{}}k+1\hspace{0.3cm} k=0,1,...n-1\\ 0 \hspace{0.7cm}     k=n,n+1,...\end{tabular}                  & $v^{k+1}$                                                                                                  & \begin{tabular}[c]{@{}l@{}}(k+1)$v^{k+1}$\hspace{0.25cm}k=0,1,...n-1\\ 0\hspace{1.73cm}k=n,n+1,...\end{tabular}                 & $(IA)|_{x:\angln}$                                                           \\ \hline
+\begin{tabular}[c]{@{}l@{}}n year term \\decreasing annuity\end{tabular}        & \begin{tabular}[c]{@{}l@{}}n-k \hspace{0.3cm} k=0,1,...n-1\\ 0 \hspace{0.7cm}  k=n,n+1,...\end{tabular}                    & $v^{k+1}$                                                                                                  & \begin{tabular}[c]{@{}l@{}}(n-k)$v^{k+1}$\hspace{0.25cm} k=0,1,...n-1\\ 0\hspace{1.7cm}                     k=n,n+1,..\end{tabular}                   & $(DA)|_{x:\angln}$                                          \\ \hline
+\begin{tabular}[c]{@{}l@{}}whole life\\ increasing annuity\end{tabular}         & k+1 \hspace{0.4cm}k=0,1,...                                                                                  & $v^{k+1}$                                                                                                  & (k+1)$v^{k+1}$,\hspace{0.3cm}k=0,1,...                                                                                                 & $(IA)_x$                                                                                      \\ \hline
+\end{tabular}
+\begin{center}
+    {(*):Rule of moments holds,thus, v(Z)=2A-$A^2$}
+\end{center}
+
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
